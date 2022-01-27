@@ -183,48 +183,11 @@ try
       
       //finding contact using name
       var readline = require("readline-sync");
-      let name = readline.question("Enter the contact name to be edited : ");
+      let name = readline.question("Enter the contact name to be deleted : ");
       let check = ContactsArray.findIndex((contactBook) => contactBook.firstName == name);
 
-      //updating the contact detail
-      let choice = readline.question("Choose the field you want to edit : \n 1. First name \n 2. Last name \n 3. Address \n 4. City \n 5. State \n 6. Zip code \n 7. Phone Number \n 8. Email \n");
-      switch(choice)
-      {
-          case "1":
-              let first = readline.question("Enter you want to edit : ");
-              ContactsArray[check].firstName = first;
-              break;
-          case "2":
-              let last = readline.question("Enter you want to edit : ");
-              ContactsArray[check].lastName = last;
-              break;
-          case "3":
-              let add = readline.question("Enter you want to edit : ");
-              ContactsArray[check].address = add;
-              break;
-          case "4":
-              let cit = readline.question("Enter you want to edit : ");
-              ContactsArray[check].city = cit;
-              break;
-          case "5":
-              let stat = readline.question("Enter you want to edit : ");
-              ContactsArray[check].state = stat;
-              break;
-          case "6":
-              let pin = readline.question("Enter you want to edit : ");
-              ContactsArray[check].zip = pin;
-              break;
-          case "7":
-              let phone = readline.question("Enter you want to edit : ");
-              ContactsArray[check].phoneNumber = phone;
-              break;
-          case "8":
-              let em = readline.question("Enter you want to edit : ");
-              ContactsArray[check].email = em;
-              break;
-          default:
-              break;
-      }
+      // Deleting the contact detail
+      ContactsArray.splice(check, 1);
 
       //displaying contacts after being updated
       console.log("--------After Updating, The Contacts are--------------");
