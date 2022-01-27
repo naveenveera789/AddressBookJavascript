@@ -223,7 +223,6 @@ try
               ContactsArray[check].email = em;
               break;
           default:
-              flag = false;
               break;
       }
 
