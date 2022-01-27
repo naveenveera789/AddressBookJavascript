@@ -178,15 +178,21 @@ try
         )
       );
       
-      let ContactsCount = 0;
-      function findTotalContacts(ContactsArray)
+      let DuplicateCount = 0;
+      var readline = require("readline-sync");
+      let name = readline.question("Enter the contact name to be checked : ");
+      function checkDuplicates(ContactBook)
       {
-        if(ContactsArray != null)
-            ContactsCount++;
-        return ContactsCount;
+        if(ContactBook.firstName == name)
+            DuplicateCount++;
+        return DuplicateCount;
       }
-      ContactsArray.reduce(findTotalContacts, 1);
-      console.log("Number of contacts present in the Address Book array are : " + ContactsCount);
+      
+      ContactsArray.forEach((ContactBook) => checkDuplicates(ContactBook));
+      if(DuplicateCount == 1)
+          console.log("It is a Duplicate Entry");
+      else
+          console.log("It is not a Duplicate Entry");
 } 
 catch (e) 
 {
