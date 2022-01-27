@@ -177,21 +177,16 @@ try
           "Durga", "Bhavani", "BusStandRoad", "Warangal", "Telangana", "504534", "8838375333", "db1777@gmail.com"
         )
       );
-
-      // Printing Contacts before updating
-      ContactsArray.forEach((contactBook) => console.log(contactBook.toString()));
       
-      //finding contact using name
-      var readline = require("readline-sync");
-      let name = readline.question("Enter the contact name to be deleted : ");
-      let check = ContactsArray.findIndex((contactBook) => contactBook.firstName == name);
-
-      // Deleting the contact detail
-      ContactsArray.splice(check, 1);
-
-      //displaying contacts after being updated
-      console.log("--------After Updating, The Contacts are--------------");
-      ContactsArray.forEach((contactBook) => console.log(contactBook.toString()));
+      let ContactsCount = 0;
+      function findTotalContacts(ContactsArray)
+      {
+        if(ContactsArray != null)
+            ContactsCount++;
+        return ContactsCount;
+      }
+      ContactsArray.reduce(findTotalContacts, 1);
+      console.log("Number of contacts present in the Address Book array are : " + ContactsCount);
 } 
 catch (e) 
 {
