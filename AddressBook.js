@@ -182,15 +182,21 @@ try
       let choice = readline.question("Enter input 1 for City and 2 for State : \n");
       if(choice == "1")
       {
-        let cityName = readline.question("Enter the city name to find persons : ");
-        let citySearch = ContactsArray.filter((ContactBook) => ContactBook.city.includes(cityName));
-        console.log(citySearch.toString());
+        function CityMap(ContactBook)
+        {
+          return ContactBook.city + "    " + ContactBook.firstName + " " + ContactBook.lastName + "\n";
+        }
+        let detailsCityMap = ContactsArray.map(CityMap);
+        console.log(detailsCityMap.toString());
       }
       if(choice == "2")
       {
-        let stateName = readline.question("Enter the state name to find persons : ");
-        let stateSearch = ContactsArray.filter((ContactBook) => ContactBook.state.includes(stateName));
-        console.log(stateSearch.toString());
+        function StateMap(ContactBook)
+        {
+          return ContactBook.state + "    " + ContactBook.firstName + " " + ContactBook.lastName + "\n";
+        }
+        let detailsStateMap = ContactsArray.map(StateMap);
+        console.log(detailsStateMap.toString());
       }
 } 
 catch (e) 
