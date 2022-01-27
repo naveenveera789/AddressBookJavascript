@@ -178,21 +178,20 @@ try
         )
       );
       
-      let DuplicateCount = 0;
       var readline = require("readline-sync");
-      let name = readline.question("Enter the contact name to be checked : ");
-      function checkDuplicates(ContactBook)
+      let choice = readline.question("Enter input 1 for City and 2 for State : \n");
+      if(choice == "1")
       {
-        if(ContactBook.firstName == name)
-            DuplicateCount++;
-        return DuplicateCount;
+        let cityName = readline.question("Enter the city name to find persons : ");
+        let citySearch = ContactsArray.filter((ContactBook) => ContactBook.city.includes(cityName));
+        console.log(citySearch.toString());
       }
-      
-      ContactsArray.forEach((ContactBook) => checkDuplicates(ContactBook));
-      if(DuplicateCount == 1)
-          console.log("It is a Duplicate Entry");
-      else
-          console.log("It is not a Duplicate Entry");
+      if(choice == "2")
+      {
+        let stateName = readline.question("Enter the state name to find persons : ");
+        let stateSearch = ContactsArray.filter((ContactBook) => ContactBook.state.includes(stateName));
+        console.log(stateSearch.toString());
+      }
 } 
 catch (e) 
 {
